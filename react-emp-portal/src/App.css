@@ -65,7 +65,10 @@
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+    margin-top: 2px;
   }
+
+  
   .form-inner .form-group label{
     display: block;
     color: #666;
@@ -106,11 +109,4 @@
   
   form .form-inner button[type="submit"]:hover {
     background-position: 100% 0% ;
-  }
-  
- 
-  
-  .wel{
-    align-items: center;
-    justify-content: center;
   }
