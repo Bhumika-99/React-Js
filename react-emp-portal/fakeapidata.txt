@@ -49,11 +49,6 @@
       "stuname": "Harry",
       "email": "harry@admin.com",
       "id": 10
-    },
-    {
-      "stuname": "bhumika",
-      "email": "admin@admin.com",
-      "id": 11
     }
   ]
 }

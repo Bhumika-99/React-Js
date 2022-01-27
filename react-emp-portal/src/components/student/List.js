@@ -1,3 +1,4 @@
+import React from "react";
 import { Typography, Box, makeStyles, TableContainer, Table, TableBody, TableCell, TableHead, TableRow, Paper, IconButton, Tooltip } from "@material-ui/core"
 import { orange } from '@material-ui/core/colors';
 import VisibilityIcon from '@material-ui/icons/Visibility';
@@ -6,6 +7,18 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
+import {useHistory} from "react-router-dom";
+
+
+
 const useStyles = makeStyles({
  stuListColor: {
   backgroundColor: orange[400],
@@ -19,30 +32,48 @@ const useStyles = makeStyles({
 })
 
 const List = () => {
- const classes = useStyles();
- const [students, setStudents] = useState([]);
+     const classes = useStyles();
+     const history = useHistory();
+     const [students, setStudents] = useState([]);
 
- useEffect(() => {
-  async function getAllStudent() {
-   try {
-    const students = await axios.get("http://localhost:3333/students")
-    // console.log(students.data);
-    setStudents(students.data);
-   } catch (error) {
-    console.log("Something is Wrong");
-   }
-  }
-  getAllStudent();
- }, [])
+     useEffect(() => {
+          async function getAllStudent() {
+               try {
+                    const students = await axios.get("http://localhost:3333/students")
+                    // console.log(students.data);
+                    setStudents(students.data);
+               } 
+               catch (error) {
+                    console.log("Something is Wrong");
+               }
+          }    
+     getAllStudent();
+     }, [])
 
  const handleDelete = async id => {
-  await axios.delete(`http://localhost:3333/students/${id}`);
-  var newstudent = students.filter((item) => {
-   // console.log(item);
-   return item.id !== id;
+          console.log(id)
+          await axios.delete(`http://localhost:3333/students/${id}`);
+          var newstudent = students.filter((item) => {
+          return item.id !== id;
+          
+     
   })
   setStudents(newstudent);
  }
+
+ const [open, setOpen] = useState(false);
+
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  
+  
+  
+  const handleClose = () => {
+     setOpen(false);
+     history.push("/");
+  };
 
 
  return (
@@ -75,9 +106,30 @@ const List = () => {
            <Tooltip title="Edit">
             <IconButton><Link to={`/edit/${student.id}`}><EditIcon /></Link></IconButton>
            </Tooltip>
-           <Tooltip title="Delete">
-            <IconButton onClick={() => handleDelete(student.id)}><DeleteIcon color="secondary" /></IconButton>
-           </Tooltip>
+
+          <Tooltip title="Delete">
+               <IconButton onClick={handleClickOpen}>
+                    <DeleteIcon color="secondary" />
+               </IconButton>     
+          </Tooltip>
+          <Dialog
+               open={open}
+               onClose={handleClose}
+               aria-labelledby="alert-dialog-title"
+               aria-describedby="alert-dialog-description">
+      
+               <DialogTitle id="alert-dialog-title">
+                    {"Are you sure to delete this data?"}
+               </DialogTitle>
+                         
+               <DialogContent>Confirm?</DialogContent>
+        
+               <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={() => {handleDelete(student.id)}} autoFocus>Confirm</Button>
+               </DialogActions>
+          </Dialog>
+          
           </TableCell>
          </TableRow>
         )

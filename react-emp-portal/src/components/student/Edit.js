@@ -48,10 +48,12 @@ const Edit = () => {
   try {
    await axios.put(`http://localhost:3333/students/${id}`, student)
    history.push("/")
-  } catch (error) {
+  } 
+  catch (error) {
    console.log("Something is Wrong");
   }
  }
+
  function handleClick() {
   history.push("/")
  }
