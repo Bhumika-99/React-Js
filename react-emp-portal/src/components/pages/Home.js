@@ -56,24 +56,25 @@ const Home = () => {
         <form noValidate>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                <TextField autoComplete="stuname" name="stuname" variant="outlined" 
-                required fullWidth id="stuname" label="Name" onChange={e => onTextFieldChange(e)}/>
+                    <TextField autoComplete="stuname" name="stuname" variant="outlined" 
+                    required fullWidth id="stuname" label="Name" onChange={e => onTextFieldChange(e)}/>
+                </Grid>
+
+                <Grid item xs={12}>
+                    <TextField autoComplete="email" name="email" variant="outlined" 
+                    required fullWidth id="email" label="Email Address" onChange={e => onTextFieldChange(e)} />
+                </Grid>
             </Grid>
 
-            <Grid item xs={12}>
-                <TextField autoComplete="email" name="email" variant="outlined" 
-                required fullWidth id="email" label="Email Address" onChange={e => onTextFieldChange(e)} />
-            </Grid>
-      </Grid>
-      <Box m={3}>
-       <Button type="submit" variant="contained" color="primary" 
-       fullWidth onClick={e => onFormSubmit(e)}>Add</Button>
-      </Box>
-     </form>
+            <Box m={3}>
+                <Button type="submit" variant="contained" color="primary" 
+                fullWidth onClick={e => onFormSubmit(e)}>Add</Button>
+            </Box>
+        </form>
     </Grid>
 
     <Grid item md={6} xs={12}>
-     <List />
+        <List />
     </Grid>
    </Grid>
   </div>

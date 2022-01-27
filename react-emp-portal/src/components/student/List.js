@@ -54,7 +54,7 @@ const List = () => {
     <Table>
      <TableHead>
       <TableRow style={{ backgroundColor: "#616161" }}>
-       <TableCell align="center" className={classes.tableHeadCell}>No</TableCell>
+       <TableCell align="center" className={classes.tableHeadCell}>ID</TableCell>
        <TableCell align="center" className={classes.tableHeadCell}>Name</TableCell>
        <TableCell align="center" className={classes.tableHeadCell}>Email</TableCell>
        <TableCell align="center" className={classes.tableHeadCell}>Action</TableCell>
