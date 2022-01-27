@@ -6,14 +6,14 @@ import Edit from "./components/student/Edit";
 import LoginForm from "./LoginForm";
 import "./App.css";
 
-function App() {
+const App = () => {
 
   const adminUser = {
     email: "admin@admin.com",
     password: "admin123"
   }
 
-  const [user, setUser] = useState({name: "", email: ""});
+  const [user, setUser] = useState({email: "", password:""});
   const [error, setError] = useState("");
 
   const Login = details =>{
@@ -22,8 +22,9 @@ function App() {
     if(details.email === adminUser.email && details.password === adminUser.password){
       console.log("Logged in");
       setUser({
-        name: details.name,
-        email: details.email
+        email: details.email,
+        password: details.password
+
       });
     } 
     else{
@@ -43,14 +44,9 @@ function App() {
 
         <div>
         
-          <div>
-            <h2>Welcome, <span>{user.name}</span></h2>
+          <div className="container">
+            <h2>Welcome Back <span><button className="log" style={{float: "right", margin: "", fontSize: "20px"}} onClick={Logout}>Logout</button></span></h2>
           </div>
-
-          <div className="log">
-            <button style={{float: "right", margin: ""}} onClick={Logout}>Logout</button>
-          </div>
-
         
           <BrowserRouter>
             <Switch>

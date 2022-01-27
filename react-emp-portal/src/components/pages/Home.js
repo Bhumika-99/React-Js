@@ -42,9 +42,9 @@ const Home = () => {
   return <Home />
  }
  return (
-  <>
+  <div className="container">
    <Box textAlign="center" className={classes.headingColor} p={2} mb={2}>
-    <Typography variant="h2">React CRUD with API Call</Typography>
+    <Typography variant="h2">Employee Data</Typography>
    </Box>
    <Grid container justify="center" spacing={4}>
     <Grid item md={6} xs={12}>
@@ -71,7 +71,7 @@ const Home = () => {
      <List />
     </Grid>
    </Grid>
-  </>
+  </div>
  )
 }
 

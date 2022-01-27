@@ -1,7 +1,14 @@
 {
-  "students": [{
-    "id": 1,
-    "stuname": "Leanne Graham",
-    "email": "Sincere@april.biz"
-  }]
+  "students": [
+    {
+      "id": 1,
+      "stuname": "Leanne Graham",
+      "email": "Sincere@april.biz"
+    },
+    {
+      "stuname": "Bhumika",
+      "email": "bhumika@gmail.com",
+      "id": 2
+    }
+  ]
 }

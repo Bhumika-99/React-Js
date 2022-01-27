@@ -25,7 +25,7 @@
     position: relative;
   }
   
-  form::after{
+  /* form::after{
     content: '';
     display: block;
     position: absolute;
@@ -35,7 +35,7 @@
     bottom: -5px;
     z-index: 1;
     
-  }
+  } */
   
   form .form-inner{
     position: relative;
@@ -58,6 +58,14 @@
     margin-bottom: 15px;
   }
   
+  .log{
+    background-color: black;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
   .form-inner .form-group label{
     display: block;
     color: #666;
