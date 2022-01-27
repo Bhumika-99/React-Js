@@ -22,13 +22,14 @@ const Home = () => {
   email: ""
  });
  const [status, setStatus] = useState();
- 
+ const [error, setError] = useState("");
 
  function onTextFieldChange(e) {
   setStudent({
    ...student,
    [e.target.name]: e.target.value
   })
+  
  }
 
  async function onFormSubmit(e) {
