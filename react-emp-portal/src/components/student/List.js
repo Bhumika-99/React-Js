@@ -4,9 +4,9 @@ import { orange } from '@material-ui/core/colors';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { useState, useEffect, useParams } from "react";
+import { useState, useEffect } from "react";
 
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';

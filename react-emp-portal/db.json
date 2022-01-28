@@ -1,9 +1,24 @@
 {
   "students": [
     {
+      "stuname": "bhumika",
+      "email": "admin@admin.com",
+      "id": 1
+    },
+    {
+      "stuname": "Graham",
+      "email": "sincere@admin.com",
+      "id": 2
+    },
+    {
       "stuname": "Ervin",
       "email": "shanna@admin.com",
       "id": 3
+    },
+    {
+      "stuname": "Chandler",
+      "email": "chandler@admin.com",
+      "id": 4
     },
     {
       "stuname": "Nicholas",
@@ -21,8 +36,18 @@
       "id": 7
     },
     {
-      "stuname": "Chandler",
-      "email": "chandler@admin.com",
+      "stuname": "Monica",
+      "email": "monica@admin.com",
+      "id": 8
+    },
+    {
+      "stuname": "Ross",
+      "email": "ross@admin.com",
+      "id": 9
+    },
+    {
+      "stuname": "Harry",
+      "email": "harry@admin.com",
       "id": 10
     }
   ]

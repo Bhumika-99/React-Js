@@ -22,8 +22,19 @@ const Home = () => {
   email: ""
  });
  const [status, setStatus] = useState();
+ const [err, setErr] = useState("");
 
- 
+//  function onNameChange(e) {
+//     setStudent({
+//         'stuname':e.target.value
+//     })
+// }
+
+function onEmailChange(e) {
+    setStudent({
+       'email': e.target.value
+    })   
+}
  
 
  function onTextFieldChange(e) {
@@ -31,13 +42,28 @@ const Home = () => {
    ...student,
    [e.target.name]: e.target.value
 })
+
+function CheckValid(){
+    if([...student && student.email] === e.target.value){
+        setErr("This email is already in use")
+    }
+    else{
+        alert("Form Submitted Successfully")
+        onFormSubmit(e)
+
+    }
+}
+
  }
  async function onFormSubmit(e) {
   e.preventDefault()
   try {
-   await axios.post(`http://localhost:3333/students`, student)
-   setStatus(true);
-  } catch (error) {
+    await axios.post(`http://localhost:3333/students`, student)
+    setStatus(true);
+   
+  } 
+  
+  catch (error) {
    console.log("Something is Wrong");
   }
  }
@@ -60,19 +86,20 @@ const Home = () => {
                 <Grid item xs={12}>
                     <TextField autoComplete="stuname" name="stuname" variant="outlined" 
                     required fullWidth id="stuname" label="Name" 
-                    onChange={e => onTextFieldChange(e)}/>
+                    onChange={e =>  onTextFieldChange(e)}/>
                 </Grid>
 
                 <Grid item xs={12}>
                     <TextField autoComplete="email" name="email" variant="outlined" 
-                    required fullWidth id="email" label="Email Address"
-                    onChange={e => onTextFieldChange(e)} />
+                        required fullWidth id="email" label="Email Address"
+                        
+                        onChange={e => onEmailChange(e)} />
                 </Grid>
             </Grid>
 
             <Box m={3}>
                 <Button type="submit" variant="contained" color="primary" 
-                fullWidth onClick={e => onFormSubmit(e)}>Add</Button>
+                fullWidth onClick={e =>  onFormSubmit(e)}>Add</Button>
             </Box>
         </form>
     </Grid>

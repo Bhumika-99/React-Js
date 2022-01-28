@@ -45,7 +45,9 @@ const App = () => {
         <div>
         
           <div className="container">
-            <h2><span className="log">Welcome Back</span> <span><button className="log" style={{float: "right", margin: "", fontSize: "20px"}} onClick={Logout}>Logout</button></span></h2>
+            <h2><span className="log">Welcome Back</span> <span><button 
+            className="log" style={{float: "right", margin: "", 
+            fontSize: "20px"}} onClick={Logout}>Logout</button></span></h2>
           </div>
         
           <BrowserRouter>
