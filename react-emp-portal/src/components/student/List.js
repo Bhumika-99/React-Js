@@ -6,7 +6,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useParams } from "react";
 
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -32,31 +32,38 @@ const useStyles = makeStyles({
 const List = () => {
      const classes = useStyles();
      const history = useHistory();
+     
      const [students, setStudents] = useState([]);
 
      useEffect(() => {
-          async function getAllStudent() {
-               try {
-                    const students = await axios.get("http://localhost:3333/students")
-                    // console.log(students.data);
-                    setStudents(students.data);
-               } 
-               catch (error) {
-                    console.log("Something is Wrong");
-               }
-          }    
-     getAllStudent();
-     }, [])
+          getAllStudent();
+ }, [])
+
+ async function getAllStudent(id) {
+
+         const students = await axios.get("http://localhost:3333/students")
+          // console.log(students.data);
+          setStudents(students.data);
+          
+          
+     }
 
  const handleDelete = async id => {
-          console.log(id)
           await axios.delete(`http://localhost:3333/students/${id}`);
-          var newstudent = students.filter((item) => {
+         
+          
+          
+          
+          
+          var newstudent = students.filter((item) => {  
           return item.id !== id;
           
-     
-  })
+     })
+          
   setStudents(newstudent);
+  setOpen(false);
+  history.push("/");
+
  }
 
  const [open, setOpen] = useState(false);
@@ -117,10 +124,10 @@ const List = () => {
                aria-describedby="alert-dialog-description">
       
                <DialogTitle id="alert-dialog-title">
-                    {"Are you sure to delete this data?"}
+                    {"Are you sure to delete this data?" }
                </DialogTitle>
                          
-               <DialogContent>Confirm?</DialogContent>
+               <DialogContent>Confirm to delete {student.stuname} data?</DialogContent>
         
                <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>

@@ -6,12 +6,12 @@
       "id": 1
     },
     {
-      "stuname": "Leanne Graham",
+      "stuname": "Graham",
       "email": "sincere@admin.com",
       "id": 2
     },
     {
-      "stuname": "Ervin Howell",
+      "stuname": "Ervin",
       "email": "shanna@admin.com",
       "id": 3
     },

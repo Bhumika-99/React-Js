@@ -25,7 +25,8 @@ const View = () => {
     const student = await axios.get(`http://localhost:3333/students/${id}`)
     // console.log(student.data);
     setStudent(student.data);
-   } catch (error) {
+   } 
+   catch (error) {
     console.log("Something is Wrong");
    }
   }

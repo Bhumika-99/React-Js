@@ -36,7 +36,7 @@ const App = () => {
   }
 
   const Logout = () => {
-    setUser({name: "", email: ""});
+    setUser({email: "", password:""});
   }
   return (
     <>
