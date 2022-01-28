@@ -44,11 +44,11 @@ function onEmailChange(e) {
 })
 
 function CheckValid(){
-    if([...student && student.email] === e.target.value){
-        setErr("This email is already in use")
+    if([...student.email] === student.email) {
+        setErr("this email already used!")
     }
     else{
-        alert("Form Submitted Successfully")
+        alert("form submitted successfully")
         onFormSubmit(e)
 
     }
@@ -99,7 +99,7 @@ function CheckValid(){
 
             <Box m={3}>
                 <Button type="submit" variant="contained" color="primary" 
-                fullWidth onClick={e =>  onFormSubmit(e)}>Add</Button>
+                fullWidth onClick={e =>{onFormSubmit(e)}}>Add</Button>
             </Box>
         </form>
     </Grid>
