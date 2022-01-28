@@ -50,11 +50,7 @@ const List = () => {
 
  const handleDelete = async id => {
           await axios.delete(`http://localhost:3333/students/${id}`);
-         
-          
-          
-          
-          
+     
           var newstudent = students.filter((item) => {  
           return item.id !== id;
           
@@ -122,13 +118,13 @@ const List = () => {
                onClose={handleClose}
                aria-labelledby="alert-dialog-title"
                aria-describedby="alert-dialog-description">
-      
+
                <DialogTitle id="alert-dialog-title">
                     {"Are you sure to delete this data?" }
                </DialogTitle>
-                         
+
                <DialogContent>Confirm to delete {student.stuname} data?</DialogContent>
-        
+
                <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
                     <Button onClick={() => {handleDelete(student.id)}} autoFocus>Confirm</Button>
